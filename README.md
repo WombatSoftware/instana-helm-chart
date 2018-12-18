@@ -98,7 +98,31 @@ The following table lists the configurable parameters of the Instana chart and t
 | `instana.agent.endpoint.host` | Instana agent backend endpoint host                                     | `saas-us-west-2.instana.io`               |
 | `instana.agent.endpoint.port` | Instana agent backend endpoint port                                     | `443`                                     |
 | `podAnnotations`              | Additional annotations to apply to the pod.                             | `{}`                                      |
+| `instana.azure.enabled`        | Whether the Azure sensor should be enabled or not                      | `false`                                   |
+| `instana.azure.subscription_id`| Azure Subscription ID                                                  | `Nil`                                     |
+| `instana.azure.tenant_id`      | Azure Tenant ID                                                        | `Nil`                                     |
+| `instana.azure.sp_id`          | Azure Service Principal ID                                             | `Nil`                                     |
+| `instana.azure.sp_secret`      | Azure Service Principal secret                                         | `Nil`                                     |
 
 ### Agent
 
 There is a [config map](templates/configmap.yaml) which you can edit to configure agent. This configuration will be used for all instana agents on all nodes.
+
+### Usage with Microsoft Azure
+
+To enable the Azure sensors, you need to add your service principal credentials to the command provided above.
+
+To install the chart with the release name `instana-agent` and Azure Service Principal credentials, run:
+
+```bash
+$ helm install . --name instana-agent --namespace instana-agent \
+--set instana.agent.key=INSTANA_AGENT_KEY \
+--set instana.agent.endpoint.host=HOST \
+--set instana.agent.endpoint.port=PORT \
+--set instana.zone=K8s-cluster \
+--set instana.azure.enabled=true \
+--set instana.azure.subscription_id=your-subscription-id \
+--set instana.azure.tenant_id=your-tenant-id \
+--set instana.azure.sp_id=your-service-principal-id \
+--set instana.azure.sp_secret=your-service-principal-secret
+```

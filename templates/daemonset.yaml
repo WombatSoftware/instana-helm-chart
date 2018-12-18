@@ -38,6 +38,28 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.instana.agent.name }}-secret
                   key: key
+{{- if .Values.instana.azure.enabled }}
+            - name: INSTANA_AZURE_SUBSCRIPTION
+              valueFrom:
+                secretKeyRef:
+                    name: {{ .Values.instana.agent.name }}-azure-secret
+                    key: subscription_id
+            - name: INSTANA_AZURE_TENANT_ID
+              valueFrom:
+                secretKeyRef:
+                    name: {{ .Values.instana.agent.name }}-azure-secret
+                    key: tenant_id
+            - name: INSTANA_AZURE_SPID
+              valueFrom:
+                secretKeyRef:
+                    name: {{ .Values.instana.agent.name }}-azure-secret
+                    key: sp_id
+            - name: INSTANA_AZURE_SPSECRET
+              valueFrom:
+                secretKeyRef:
+                    name: {{ .Values.instana.agent.name }}-azure-secret
+                    key: sp_secret
+{{- end }}
           securityContext:
             privileged: true
           volumeMounts:

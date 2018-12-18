@@ -15,6 +15,12 @@ instana:
     endpoint:
       host: saas-us-west-2.instana.io
       port: 443
+  azure:
+    enabled: false
+    # subscription_id: your subscription id
+    # tenant_id: your tenant id
+    # sp_id: your service principal id
+    # sp_secret: your service principal secret
 
 ## Annotations to be added to pods
 podAnnotations: {}
