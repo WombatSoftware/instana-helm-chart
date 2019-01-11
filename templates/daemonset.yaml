@@ -28,9 +28,9 @@ spec:
             - name: INSTANA_AGENT_LEADER_ELECTOR_PORT
               value: {{ .Values.instana.leaderElectorPort | quote }}
             - name: INSTANA_ZONE
-              value: {{ .Values.instana.zone }}
+              value: {{ .Values.instana.zone | quote }}
             - name: INSTANA_AGENT_ENDPOINT
-              value: {{ .Values.instana.agent.endpoint.host }}
+              value: {{ .Values.instana.agent.endpoint.host | quote }}
             - name: INSTANA_AGENT_ENDPOINT_PORT
               value: {{ .Values.instana.agent.endpoint.port | quote }}
             - name: INSTANA_AGENT_KEY
