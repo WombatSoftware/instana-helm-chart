@@ -63,7 +63,7 @@ Optionally, if your infrastructure uses a proxy, you should ensure that you set 
 * instana.agent.proxyPassword
 * instana.agent.proxyUseDNS
 
-Check the values for the endpoint entries in [agent backend configuration](https://docs.instana.io/quick_start/agent_configuration/#backend)
+Check the values for the endpoint entries in the [agent backend configuration](https://docs.instana.io/quick_start/agent_configuration/#backend).
 
 To install the chart with the release name `instana-agent` and set the values on the command line run:
 
