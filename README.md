@@ -115,7 +115,7 @@ The following table lists the configurable parameters of the Instana chart and t
 | `podAnnotations`              | Additional annotations to apply to the pod                              | `{}`                                      |
 | `instana.agent.proxyHost`     | Hostname/address of a proxy                                             | `nil`                                     |
 | `instana.agent.proxyPort`     | Port of a proxy                                                         | `nil`                                     |
-| `instana.agent.proxyProtocol` | Proxy protocol (e.g. http)                                              | `nil`                                     |
+| `instana.agent.proxyProtocol` | Proxy protocol (Supported proxy types are "http", "socks4", "socks5")   | `nil`                                     |
 | `instana.agent.proxyUser`     | Username of the proxy auth                                              | `nil`                                     |
 | `instana.agent.proxyPassword` | Password of the proxy auth                                              | `nil`                                     |
 | `instana.agent.proxyUseDNS`   | Boolean if proxy also does DNS                                          | `nil`                                     |
