@@ -54,6 +54,15 @@ To configure the installation you can either specify the options on the command 
 * instana.agent.endpoint.port
 * instana.zone
 
+Optionally, if your infrastucture uses proxy, you should ensure that you set values for:
+
+* instana.agent.proxyHost
+* instana.agent.proxyPort
+* instana.agent.proxyProtocol
+* instana.agent.proxyUser
+* instana.agent.proxyPassword
+* instana.agent.proxyUseDNS
+
 Check the values for the endpoint entries in [agent backend configuration](https://docs.instana.io/quick_start/agent_configuration/#backend)
 
 To install the chart with the release name `instana-agent` and set the values on the command line run:
@@ -63,7 +72,13 @@ $ helm install . --name instana-agent --namespace instana-agent \
 --set instana.agent.key=INSTANA_AGENT_KEY \
 --set instana.agent.endpoint.host=HOST \
 --set instana.agent.endpoint.port=PORT \
---set instana.zone=K8s-cluster
+--set instana.zone=K8s-cluster \
+--set instana.agent.proxyHost=INSTANA_AGENT_PROXY_HOST \
+--set instana.agent.proxyPort=INSTANA_AGENT_PROXY_PORT \
+--set instana.agent.proxyProtocol=INSTANA_AGENT_PROXY_PROTOCOL \
+--set instana.agent.proxyUser=INSTANA_AGENT_PROXY_USER \
+--set instana.agent.proxyPassword=INSTANA_AGENT_PROXY_PASSWORD \
+--set instana.agent.proxyUseDNS=INSTANA_AGENT_PROXY_USE_DNS
 ```
 
 To install the chart with the release name `instana-agent` after editing the **values.yaml** file, run:
@@ -97,7 +112,13 @@ The following table lists the configurable parameters of the Instana chart and t
 | `instana.leaderElectorPort`   | Instana leader elector sidecar port                                     | `42655`                                   |
 | `instana.agent.endpoint.host` | Instana agent backend endpoint host                                     | `saas-us-west-2.instana.io`               |
 | `instana.agent.endpoint.port` | Instana agent backend endpoint port                                     | `443`                                     |
-| `podAnnotations`              | Additional annotations to apply to the pod.                             | `{}`                                      |
+| `podAnnotations`              | Additional annotations to apply to the pod                              | `{}`                                      |
+| `instana.agent.proxyHost`     | Hostname/address of a proxy                                             | `nil`                                     |
+| `instana.agent.proxyPort`     | Port of a proxy                                                         | `nil`                                     |
+| `instana.agent.proxyProtocol` | Proxy protocol (e.g. http)                                              | `nil`                                     |
+| `instana.agent.proxyUser`     | Username of the proxy auth                                              | `nil`                                     |
+| `instana.agent.proxyPassword` | Password of the proxy auth                                              | `nil`                                     |
+| `instana.agent.proxyUseDNS`   | Boolean if proxy also does DNS                                          | `nil`                                     |
 
 ### Agent
 
