@@ -54,7 +54,7 @@ To configure the installation you can either specify the options on the command 
 * instana.agent.endpoint.port
 * instana.zone
 
-Optionally, if your infrastucture uses proxy, you should ensure that you set values for:
+Optionally, if your infrastructure uses a proxy, you should ensure that you set values for:
 
 * instana.agent.proxyHost
 * instana.agent.proxyPort
